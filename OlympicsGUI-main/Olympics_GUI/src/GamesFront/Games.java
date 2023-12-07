@@ -8,6 +8,7 @@ package GamesFront;
 import javax.swing.JOptionPane;
 import java.util.Random;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class Games extends javax.swing.JFrame {
     
@@ -315,6 +316,7 @@ public class Games extends javax.swing.JFrame {
         switch (elijio) {
             
             case 0: 
+                ArrayList <Float> puntajesfinales1 = new ArrayList ();
                 DecimalFormat df = new DecimalFormat("#.00");
                 JOptionPane.showMessageDialog(null, "Competencia en Modo Normal");
                 JOptionPane.showMessageDialog(null, "Ha comenzado la competencia!");
@@ -333,24 +335,20 @@ public class Games extends javax.swing.JFrame {
                                  matriz[i][j] += nad2;
                                 break;
                         }  
-                        
                     }                    
                 }
                 
                 int cont=1; 
-                float [] arreglosum = new float [2];
-                
-        
                 for (int i = 0; i < 2; i++) {
                     float suma = recursivasumalaps(matriz, i, 0);
-                    arreglosum[i] = suma;
+                    puntajesfinales1.add(suma);
                     
                     System.out.println("Nadador " + cont + ": " + df.format(suma));
                     cont++;
                 }
-                imprimir_arreglo(arreglosum); 
-                System.out.println(indicedelganador(arreglosum, (recursivabuscaganador(arreglosum, 0, arreglosum[0]))));
-                System.out.println(recursivabuscaganador(arreglosum, 0, arreglosum[0]));
+                imprimirlista(puntajesfinales1); 
+                System.out.println(indicedelganador(puntajesfinales1, (recursivabuscaganador(puntajesfinales1, 0, puntajesfinales1.get(0)))));
+                System.out.println(recursivabuscaganador(puntajesfinales1, 0, puntajesfinales1.get(0)));
                 
                 
                 JOptionPane.showMessageDialog(null,"Puntajes de la competencia: \n                       Lap 1          Lap 2        Lap3 \n" + (imprimeJoption(matriz)));
@@ -360,6 +358,7 @@ public class Games extends javax.swing.JFrame {
                 
                 break;
             case 1:
+                ArrayList <Float> puntajesfinales2 = new ArrayList ();
                 JOptionPane.showMessageDialog(null, "Competencia en Modo Eliminatoria");
                 float [][] matriz2 = new float [3][3];
                 DecimalFormat df2 = new DecimalFormat("#.00");
@@ -384,16 +383,57 @@ public class Games extends javax.swing.JFrame {
                         }                        
                     }                    
                 }
-                cont=1;
+                
+                cont=1; 
+                
                 for (int i = 0; i < 3; i++) {
-                     float suma = recursivasumalaps(matriz2, i, 0);
-                    System.out.println("Nadador " + i + ": " + df2.format(suma));
+                    float suma = recursivasumalaps(matriz2, i, 0);
+                    puntajesfinales2.add(suma);
+                    
+                    System.out.println("Nadador " + cont + ": " + df2.format(suma));
                     cont++;
                 }
+                imprimirlista(puntajesfinales2);
+                System.out.println(indicedelganador(puntajesfinales2, (recursivabuscaeliminado(puntajesfinales2, 0, puntajesfinales2.get(0)))));
+                System.out.println(recursivabuscaganador(puntajesfinales2, 0, puntajesfinales2.get(0)));
+                
+                
+                JOptionPane.showMessageDialog(null,"Puntajes de la competencia: \n                       Lap 1          Lap 2        Lap3 \n" + (imprimeJoption(matriz2)));
+                JOptionPane.showMessageDialog(null, "Tenemos un eliminado");
+                
+                
+                for (int i=0; i<3; i++){
+                    
+                }
+                int eliminado = 0;
+                switch(indicedelganador(puntajesfinales2, (recursivabuscaeliminado(puntajesfinales2, 0, puntajesfinales2.get(0))))){
+                    case 0:
+                        eliminado=1;
+                     break;
+                    case 1:
+                        eliminado=2;
+                      break;
+                    case 2:
+                        eliminado=3;
+                      break;
+                    case 3:
+                        eliminado=4;
+                      break;
+                    case 4:
+                        eliminado=5;
+                      break;
+                }
+                
+                JOptionPane.showMessageDialog(null, "El eliminado es el Nadador " + eliminado);
+                
+                
                 
                 break;
                 
+                
+                
             case 2:
+                ArrayList <Float> puntajesfinales3 = new ArrayList ();
                 JOptionPane.showMessageDialog(null, "Competencia en Modo Eliminatoria");
                 float [][] matriz3 = new float [4][3];
                 DecimalFormat df3 = new DecimalFormat("#.00");
@@ -423,16 +463,28 @@ public class Games extends javax.swing.JFrame {
                         }                       
                     }                    
                 }
-                 cont=1;
+                cont=1; 
+                
                 for (int i = 0; i < 4; i++) {
-                     float suma = recursivasumalaps(matriz3, i, 0);
+                    float suma = recursivasumalaps(matriz3, i, 0);
+                    puntajesfinales3.add(suma);
+                    
                     System.out.println("Nadador " + cont + ": " + df3.format(suma));
                     cont++;
                 }
+                imprimirlista(puntajesfinales3); 
+                System.out.println(indicedelganador(puntajesfinales3, (recursivabuscaganador(puntajesfinales3, 0, puntajesfinales3.get(0)))));
+                System.out.println(recursivabuscaganador(puntajesfinales3, 0, puntajesfinales3.get(0)));
+                
+                
+                JOptionPane.showMessageDialog(null,"Puntajes de la competencia: \n                       Lap 1          Lap 2        Lap3 \n" + (imprimeJoption(matriz3)));
+                JOptionPane.showMessageDialog(null, "Los puntajes han sido sumados y ya tenemos un ganador");
+                JOptionPane.showMessageDialog(null, "Presione 'Results' para desciubrirlo");
                 
                 break;
                 
             case 3:
+                ArrayList <Float> puntajesfinales4 = new ArrayList ();
                 JOptionPane.showMessageDialog(null, "Competencia en Modo Eliminatoria");
                 float [][] matriz4 = new float [5][3];
                 DecimalFormat df4 = new DecimalFormat("#.00");
@@ -469,12 +521,23 @@ public class Games extends javax.swing.JFrame {
                 }
                 
                 
-                cont=1;
+                cont=1; 
+                
                 for (int i = 0; i < 5; i++) {
-                     float suma = recursivasumalaps(matriz4, i, 0);
+                    float suma = recursivasumalaps(matriz4, i, 0);
+                    puntajesfinales4.add(suma);
+                    
                     System.out.println("Nadador " + cont + ": " + df4.format(suma));
                     cont++;
                 }
+                imprimirlista(puntajesfinales4); 
+                System.out.println(indicedelganador(puntajesfinales4, (recursivabuscaganador(puntajesfinales4, 0, puntajesfinales4.get(0)))));
+                System.out.println(recursivabuscaganador(puntajesfinales4, 0, puntajesfinales4.get(0)));
+                
+                
+                JOptionPane.showMessageDialog(null,"Puntajes de la competencia: \n                       Lap 1          Lap 2        Lap3 \n" + (imprimeJoption(matriz4)));
+                JOptionPane.showMessageDialog(null, "Los puntajes han sido sumados y ya tenemos un ganador");
+                JOptionPane.showMessageDialog(null, "Presione 'Results' para desciubrirlo");
                 
                 break;                
        
@@ -524,10 +587,10 @@ public class Games extends javax.swing.JFrame {
                 }
     }
     
-    public static void imprimir_arreglo(float [] size){
+    public static void imprimirlista(ArrayList <Float> puntajes){
         DecimalFormat df5 = new DecimalFormat("#.00");
-        for (int i = 0; i < size.length; i++){            
-            System.out.print("[" + df5.format(size[i]) + "]");
+        for (int i = 0; i < puntajes.size(); i++){            
+            System.out.print("[" + puntajes.get(i) + "]");
         }
     }
     
@@ -560,10 +623,10 @@ public class Games extends javax.swing.JFrame {
       return imp;  
     }
     
-    public static int indicedelganador (float [] arreglo, float menor){
+    public static int indicedelganador (ArrayList <Float> puntajes, float menoromayor){
      int ind = 0; 
-        for (int i=0; i<arreglo.length; i++){
-        if (arreglo[i]==menor){
+        for (int i=0; i<puntajes.size(); i++){
+        if (puntajes.get(i)==menoromayor){
             ind = i;
         }
     }
@@ -571,17 +634,32 @@ public class Games extends javax.swing.JFrame {
     }
             
     
-    public static float recursivabuscaganador (float []arreglo, int cont, float menor){
+    public static float recursivabuscaganador (ArrayList <Float> puntajes, int cont, float menor){
         
-        if (cont==arreglo.length){
+        if (cont==puntajes.size()){
             return menor;              
         }
         else{
-            if (arreglo[cont]<menor){
-                  menor=arreglo[cont];
+            if (puntajes.get(cont)<menor){
+                  menor=puntajes.get(cont);
             }
               
-            return recursivabuscaganador(arreglo, cont+1, menor);
+            return recursivabuscaganador(puntajes, cont+1, menor);
+        }
+           
+    }
+    
+    public static float recursivabuscaeliminado (ArrayList <Float> puntajes, int cont, float mayor){
+        
+        if (cont==puntajes.size()){
+            return mayor;              
+        }
+        else{
+            if (puntajes.get(cont)>mayor){
+                  mayor=puntajes.get(cont);
+            }
+              
+            return recursivabuscaeliminado(puntajes, cont+1, mayor);
         }
            
     }
@@ -597,7 +675,7 @@ public class Games extends javax.swing.JFrame {
     
     
     
-    /*public static float [] Resultados(float matriz[][], float [] resultado, float filaActual){
+    /*public static float [] Resultados(float matriz[][], float [] resultado, float fil){
         float [] temporal = new float[matriz.length];
         //caso base
         
@@ -610,7 +688,7 @@ public class Games extends javax.swing.JFrame {
                     fil[i]=suma;
                 }
             }
-        if(filaActual < matriz.length){
+        if(fil < matriz.length){
             int SumaFila = 0;
             
             for(int i =0 ; i<matriz[filaActual]; i++){
@@ -626,13 +704,13 @@ public class Games extends javax.swing.JFrame {
          return temporal;
     }*/
     
-    /*public static float[] regmejorTiempo (float [][] matriz, float mejorestiempos, int indice){
+    /*public static float[] regmejort (float [][] matriz, float mtiempos, int indice){
         int ronda=3;
         
         for (int i=0; i <matriz.length; i++){               
                 for (int j=0; j< matriz[i].length; j++){
                    if (i<matriz.length){
-                       if (tiempo[indice]<mejorestiempos)
+                       if (tiempo[indice]<mtiempos)
         }  
                 }
             }

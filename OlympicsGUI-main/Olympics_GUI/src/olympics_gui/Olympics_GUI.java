@@ -6,7 +6,7 @@ package olympics_gui;
 // DUO: Alejandra Reyes & Hanne Mendoza
 
 import GamesFront.Games;
-import java.util.Scanner;
+
 
 
 public class Olympics_GUI {  
@@ -33,37 +33,9 @@ public class Olympics_GUI {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               
+               new Games().setVisible(true);
             }
         });
-            Scanner leer = new Scanner (System.in);
-            System.out.println("* * * * * M E N U * * * * * ");
-            System.out.println("1. GUI Olympics");
-            System.out.println("2. ATM");
-            System.out.println("3. Salir del programa");
-            int opcion = leer.nextInt();
-            
-            while (opcion>0 && opcion<3){
-                switch (opcion){
-                  case 1:
-                    new Games().setVisible(true);
-                    break;
-                    
-                  case 2:
-                      break;
-                      
-                  default:
-                      System.exit(0);
-                         
-                }
-                
-            System.out.println("* * * * * M E N U * * * * * ");
-            System.out.println("1. GUI Olympics");
-            System.out.println("2. ATM");
-            System.out.println("3. Salir del programa");
-            opcion = leer.nextInt();
-            }
-            
            
             
     }
