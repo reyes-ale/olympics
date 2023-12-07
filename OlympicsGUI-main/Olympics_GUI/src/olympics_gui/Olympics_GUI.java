@@ -39,7 +39,7 @@ public class Olympics_GUI {
             Scanner leer = new Scanner (System.in);
             System.out.println("* * * * * M E N U * * * * * ");
             System.out.println("1. GUI Olympics");
-            System.out.println("2. Registro UNITEC");
+            System.out.println("2. ATM");
             System.out.println("3. Salir del programa");
             int opcion = leer.nextInt();
             
@@ -59,7 +59,7 @@ public class Olympics_GUI {
                 
             System.out.println("* * * * * M E N U * * * * * ");
             System.out.println("1. GUI Olympics");
-            System.out.println("2. Registro UNITEC");
+            System.out.println("2. ATM");
             System.out.println("3. Salir del programa");
             opcion = leer.nextInt();
             }
